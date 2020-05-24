@@ -1,0 +1,19 @@
+version: "3"
+services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq
+    volumes:
+      - ./data/:/var/lib/rabbitmq/
+      - ./logs/:/var/log/rabbitmq/
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: 9995410697
+    ports:
+      - 5672:5672
+      - 15672:15672
+
+#Docker Networks
+networks:
+  proxy:
+    external: true
